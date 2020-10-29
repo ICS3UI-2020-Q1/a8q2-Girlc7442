@@ -5,7 +5,20 @@ import java.awt.event.*;
 public class Main implements Runnable, ActionListener{
 
   // Class Variables  
-  
+  JPanel mainPanel;
+
+  JLabel firstLabel;
+  JLabel secondLabel;
+  JLabel resultLabel;
+
+  JTextField firstInput;
+  JTextField secondInput;
+  JTextField thirdInput;
+
+  JButton addBtn;
+  JButton subBtn;
+  JButton multBtn;
+  JButton divBtn;
 
 
   // Method to assemble our GUI
@@ -19,7 +32,61 @@ public class Main implements Runnable, ActionListener{
     // shows the window
     frame.setVisible(true);
  
-    
+    //initialize the main JPanel
+    mainPanel = new JPanel();
+    //disable layout helpers
+    mainPanel.setLayout(null);
+
+    //initialize the labels
+    firstLabel = new JLabel("First Number");
+    secondLabel = new JLabel("Second Number");
+    resultLabel = new JLabel("Result");
+
+    //set location and bounds
+    firstLabel.setBounds(50,25,200,25);
+    secondLabel.setBounds(50,75,200,25);
+    resultLabel.setBounds(50,125,200,25);
+
+    //initialize the text fields
+    firstInput = new JTextField();
+    secondInput = new JTextField();
+    thirdInput = new JTextField();
+
+    //set location and bounds
+    firstInput.setBounds(300,25,200,25);
+    secondInput.setBounds(300,75,200,25);
+    thirdInput.setBounds(300,125,200,25);
+
+    //initialize the buttons
+    addBtn = new JButton("Add");
+    subBtn = new JButton("Sub");
+    multBtn = new JButton("Mul");
+    divBtn = new JButton("Div");
+
+    //set location and bounds
+    addBtn.setBounds(50,200,100,25);
+    subBtn.setBounds(175,200,100,25);
+    multBtn.setBounds(300,200,100,25);
+    divBtn.setBounds(425,200,100,25);
+
+    //add the buttons to the main panel
+    mainPanel.add(addBtn);
+    mainPanel.add(subBtn);
+    mainPanel.add(multBtn);
+    mainPanel.add(divBtn);
+
+    //add the text fields to the main panel
+    mainPanel.add(firstInput);
+    mainPanel.add(secondInput);
+    mainPanel.add(thirdInput);
+
+    //add the labels to the main panel
+    mainPanel.add(firstLabel);
+    mainPanel.add(secondLabel);
+    mainPanel.add(resultLabel);
+
+    //add the panel to the window
+    frame.add(mainPanel);
 
   }
 
