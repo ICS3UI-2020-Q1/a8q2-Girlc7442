@@ -63,6 +63,18 @@ public class Main implements Runnable, ActionListener{
     multBtn = new JButton("Mul");
     divBtn = new JButton("Div");
 
+    //add an action listener to the buttons 
+    addBtn.addActionListener(this);
+    subBtn.addActionListener(this);
+    multBtn.addActionListener(this);
+    divBtn.addActionListener(this);
+
+    //set the action command on the buttons
+    addBtn.setActionCommand("Add");
+    subBtn.setActionCommand("Sub");
+    multBtn.setActionCommand("Mul");
+    divBtn.setActionCommand("Div");
+
     //set location and bounds
     addBtn.setBounds(50,200,100,25);
     subBtn.setBounds(175,200,100,25);
@@ -87,7 +99,6 @@ public class Main implements Runnable, ActionListener{
 
     //add the panel to the window
     frame.add(mainPanel);
-
   }
 
   // method called when a button is pressed
@@ -95,6 +106,52 @@ public class Main implements Runnable, ActionListener{
     // get the command from the action
     String command = e.getActionCommand();
 
+    //perform the operation requested
+    if(command.equals("Add")){
+      //get the text from each text box
+      String firstText = firstInput.getText();
+      String secondText = secondInput.getText();
+      
+      //change the string into an integer
+      double a = Double.parseDouble(firstText);
+      double b = Double.parseDouble(secondText);
+     
+      //display the added result
+      thirdInput.setText("" + (a + b));
+    }else if(command.equals("Sub")){
+      //get the text from each text box
+      String firstText = firstInput.getText();
+      String secondText = secondInput.getText();
+      
+      //change the string into an integer
+      double a = Double.parseDouble(firstText);
+      double b = Double.parseDouble(secondText);
+     
+      //display the subtracted result
+      thirdInput.setText("" + (a - b));
+    }else if(command.equals("Mul")){
+      //get the text from each text box
+      String firstText = firstInput.getText();
+      String secondText = secondInput.getText();
+      
+      //change the string into an integer
+      double a = Double.parseDouble(firstText);
+      double b = Double.parseDouble(secondText);
+      
+      //display the multiplied result
+      thirdInput.setText("" + (a * b));
+    }else if(command.equals("Div")){
+      //get the text from each text box
+      String firstText = firstInput.getText();
+      String secondText = secondInput.getText();
+      
+      //change the string into an integer
+      double a = Double.parseDouble(firstText);
+      double b = Double.parseDouble(secondText);
+      
+      //display the division result
+      thirdInput.setText("" + (a / b));
+    }
   }
 
   // Main method to start our program
